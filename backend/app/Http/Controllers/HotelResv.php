@@ -14,8 +14,8 @@ class HotelResv extends Controller
             $this->validate($request,[
                 'customer_id' => 'required',
                 'room_id' => 'required',
-                'check_in_date' => 'required',
-                'check_out_date' => 'required',
+                'check_in' => 'required',
+                'check_out' => 'required',
                 'payment' => 'required'
 
             ]);
@@ -25,8 +25,8 @@ class HotelResv extends Controller
             $book = new Transaction;
             $book->customer_id = $req->input('customer_id');
             $book->room_id = $roomId;
-            $book->check_in_date = $req->input('check_in_date');
-            $book->check_out_date = $req->input('check_out_date');
+            $book->check_in= $req->input('check_in_date');
+            $book->check_out = $req->input('check_out_date');
             $book->payment = $req->input('payment');
            
             $book->save();
